@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VysledokHryFragment">
+
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Získané karty:"
+        android:textSize="28sp"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="91dp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vyhral si! Body: 5"
+        android:textSize="28sp"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="38dp" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="150dp"
+        android:layout_height="210dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="150dp"
+
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/karta_10g"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="148dp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="150dp"
+        android:layout_height="210dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="150dp"
+
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/karta_10g"
+        tools:layout_editor_absoluteX="217dp"
+        tools:layout_editor_absoluteY="148dp" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="150dp"
+        android:layout_height="210dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="150dp"
+
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/karta_10g"
+        tools:layout_editor_absoluteX="32dp"
+        tools:layout_editor_absoluteY="373dp" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="150dp"
+        android:layout_height="210dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="150dp"
+
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/karta_10g"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="373dp" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="150dp"
+        android:layout_height="210dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="150dp"
+
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/karta_10g"
+        tools:layout_editor_absoluteX="39dp"
+        tools:layout_editor_absoluteY="607dp" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="150dp"
+        android:layout_height="210dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="150dp"
+
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/karta_10g"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="614dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

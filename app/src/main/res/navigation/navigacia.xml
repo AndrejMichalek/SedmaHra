@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigacia"
+    app:startDestination="@id/menuFragment">
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.sedmahra.MenuFragment"
+        android:label="Sedma"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/menuFragment_to_hraFragment"
+            app:destination="@id/hraFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_pravidlaFragment"
+            app:destination="@id/pravidlaFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_historiaFragment"
+            app:destination="@id/historiaFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/hraFragment"
+        android:name="com.example.sedmahra.HraFragment"
+        android:label="Hra"
+        tools:layout="@layout/fragment_hra" >
+        <action
+            android:id="@+id/action_hraFragment_to_vysledokHryFragment"
+            app:destination="@id/vysledokHryFragment"
+            app:popUpTo="@id/menuFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/pravidlaFragment"
+        android:name="com.example.sedmahra.PravidlaFragment"
+        android:label="Pravidlá"
+        tools:layout="@layout/fragment_pravidla"
+        />
+    <fragment
+        android:id="@+id/vysledokHryFragment"
+        android:name="com.example.sedmahra.VysledokHryFragment"
+        android:label="Výsledok"
+        tools:layout="@layout/fragment_vysledok_hry"
+        />
+    <fragment
+        android:id="@+id/historiaFragment"
+        android:name="com.example.sedmahra.HistoriaFragment"
+        android:label="História hier"
+        tools:layout="@layout/fragment_historia"/>
+
+</navigation>
