@@ -1,12 +1,16 @@
 package com.example.sedmahra
+import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.navigation.findNavController
 import com.example.sedmahra.databinding.FragmentHraBinding
 
-class Hra (var binding : FragmentHraBinding, val hrac: Hrac = Hrac(), val protihrac: Hrac = Hrac(), var karty: ArrayList<Karta> = ArrayList<Karta>(),
-           var ziskaneKartyHrac: ArrayList<Karta> = ArrayList<Karta>(), var hracVyhralKolo: Boolean = true, var kartyNaStole: ArrayList<Karta> = ArrayList<Karta>()) {
+class Hra (var binding : FragmentHraBinding,val hrac: Hrac = Hrac(), val protihrac: Hrac = Hrac(), var karty: ArrayList<Karta> = ArrayList<Karta>(),
+           var ziskaneKartyHrac: ArrayList<Karta> = ArrayList<Karta>(), var hracVyhralKolo: Boolean = true, var kartyNaStole: ArrayList<Karta> = ArrayList<Karta>()
+            ) {
     init {
         this.inicializujKarty()
         this.rozdajKarty()
@@ -101,6 +105,14 @@ class Hra (var binding : FragmentHraBinding, val hrac: Hrac = Hrac(), val protih
                     this.kartyNaStole.add(karta)
                 }
             }
+            if(this.hrac.kartyRuka.size == 0) {
+                val bundle : Bundle = Bundle();
+                bundle.putParcelableArrayList("ziskane karty", this.ziskaneKartyHrac)
+
+
+                binding.root.findNavController().navigate(R.id.action_hraFragment_to_vysledokHryFragment, bundle)
+            }
+
             this.aktualizujZobrazenieKariet()
         }, 1000)
 

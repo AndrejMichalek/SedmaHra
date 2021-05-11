@@ -1,4 +1,7 @@
 package com.example.sedmahra
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-data class Karta(val typ: TypKarty, val obrazok : Int)
+@Parcelize
+data class Karta(val typ: TypKarty, val obrazok : Int) : Parcelable
