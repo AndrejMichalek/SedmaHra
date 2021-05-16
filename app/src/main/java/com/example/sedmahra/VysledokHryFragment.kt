@@ -39,4 +39,9 @@ class VysledokHryFragment : Fragment() {
 
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+    }
+
 }

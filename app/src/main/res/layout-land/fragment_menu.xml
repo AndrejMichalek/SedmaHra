@@ -10,6 +10,17 @@
 
 
         <Button
+            android:id="@+id/historia_hry_button"
+            android:layout_width="140dp"
+            android:layout_height="60dp"
+            android:autoSizeTextType="uniform"
+            android:text="@string/hist_ria"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toBottomOf="@+id/pravidla_hry_button" />
+
+        <Button
             android:id="@+id/hraj_button"
             android:layout_width="140dp"
             android:layout_height="60dp"
@@ -17,8 +28,8 @@
             android:text="@string/hraj"
             app:layout_constraintBottom_toTopOf="@+id/nova_hra_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/nova_hra_button"
@@ -28,7 +39,7 @@
             android:text="@string/nova_hra_text"
             app:layout_constraintBottom_toTopOf="@+id/pravidla_hry_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toBottomOf="@+id/hraj_button" />
 
         <Button
@@ -39,29 +50,39 @@
             android:text="@string/pravidl"
             app:layout_constraintBottom_toTopOf="@+id/historia_hry_button"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
             app:layout_constraintTop_toBottomOf="@+id/nova_hra_button" />
-
-        <Button
-            android:id="@+id/historia_hry_button"
-            android:layout_width="140dp"
-            android:layout_height="60dp"
-            android:autoSizeTextType="uniform"
-            android:text="@string/hist_ria"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pravidla_hry_button" />
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="300dp"
             android:layout_height="200dp"
             android:src="@drawable/menu_obr"
-            app:layout_constraintBottom_toTopOf="@+id/hraj_button"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="380dp"
+            android:layout_marginEnd="351dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_begin="391dp"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.47000003" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,4 +5,15 @@
     <string name="pravidl">PRAVIDLÁ</string>
     <string name="hraj">HRAJ</string>
     <string name="hist_ria">HISTÓRIA</string>
+    <string name="nova_hra_text">NOVÁ HRA</string>
+
+
+    <string name="hracove_body">Hráčove body: %d</string>
+    <string name="protihracove_body">Protihráčove body: %d</string>
+    <string name="zostava_kariet">Zostáva %d kariet</string>
+    <string name="karty_na_kope">Karty na kope:</string>
+    <string name="ber_button_text">Ber</string>
+    <string name="karty_ruka_text">Karty v ruke:</string>
+
+    <string name="historia_subor">historia_hry_subor</string>
 </resources>

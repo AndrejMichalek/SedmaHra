@@ -1,42 +1,52 @@
 package com.example.sedmahra
-import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
+import android.os.*
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.navigation.findNavController
 import com.example.sedmahra.databinding.FragmentHraBinding
+import java.io.Serializable
 
-class Hra (var binding : FragmentHraBinding,val hrac: Hrac = Hrac(), val protihrac: Hrac = Hrac(), var karty: ArrayList<Karta> = ArrayList<Karta>(),
+
+class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac: Hrac = Hrac(), val protihrac: Hrac = Hrac(), var karty: ArrayList<Karta> = ArrayList<Karta>(),
            var ziskaneKartyHrac: ArrayList<Karta> = ArrayList<Karta>(), var hracVyhralKolo: Boolean = true, var kartyNaStole: ArrayList<Karta> = ArrayList<Karta>()
-            ) {
+            ) :Serializable{
     init {
-        this.inicializujKarty()
-        this.rozdajKarty()
+        if(nacitanaHra == false) {
+            this.inicializujKarty()
+            this.rozdajKarty()
+        }
         this.aktualizujZobrazenieKariet()
+        this.aktualizujZobrazenieTextu()
+        this.nastavListenery()
 
-        binding.kartaRuka1.setOnClickListener() {
+    }
+
+    public fun nastavListenery() {
+        binding?.kartaRuka1?.setOnClickListener() {
             hracovTah(0);
             this.aktualizujZobrazenieKariet()
         }
-        binding.kartaRuka2.setOnClickListener() {
+        binding?.kartaRuka2?.setOnClickListener() {
             hracovTah(1)
             this.aktualizujZobrazenieKariet()
         }
-        binding.kartaRuka3.setOnClickListener() {
+        binding?.kartaRuka3?.setOnClickListener() {
             hracovTah(2)
             this.aktualizujZobrazenieKariet()
         }
-        binding.kartaRuka4.setOnClickListener() {
+        binding?.kartaRuka4?.setOnClickListener() {
             hracovTah(3)
             this.aktualizujZobrazenieKariet()
         }
-        binding.berButton.setOnClickListener() {
+        binding?.berButton?.setOnClickListener() {
+            if(this.kartyNaStole.size ==2 ||this.kartyNaStole.size ==4 || this.kartyNaStole.size ==6 || this.kartyNaStole.size ==8 )
             this.koloSkoncilo()
             this.aktualizujZobrazenieKariet()
         }
     }
+
+
     private fun hracovTah(indexKarty : Int) {
         if(this.kartyNaStole.size == 1 || this.kartyNaStole.size == 3 || this.kartyNaStole.size == 5 || this.kartyNaStole.size == 7) {
             val karta: Karta = this.hrac.kartyRuka.removeAt(indexKarty);
@@ -59,7 +69,7 @@ class Hra (var binding : FragmentHraBinding,val hrac: Hrac = Hrac(), val protihr
             if(kartyNaStole.size > 0) {
                 if(hrac.kartyRuka[indexKarty].typ != this.kartyNaStole[0].typ &&
                     hrac.kartyRuka[indexKarty].typ != TypKarty.SEDEM) {
-                    Toast.makeText(binding.root.context, "Táto karta  nemôže zabiť", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(binding?.root?.context, "Táto karta  nemôže zabiť", Toast.LENGTH_SHORT).show()
                 }
                 else {
                     val karta : Karta = this.hrac.kartyRuka.removeAt(indexKarty);
@@ -87,8 +97,8 @@ class Hra (var binding : FragmentHraBinding,val hrac: Hrac = Hrac(), val protihr
             }
             if(this.hracVyhralKolo) {
 
-                this.hrac.body += bodyVKole;
-                binding.vaseBodyTextView.setText("Vaše body: ${hrac.body}")
+                this.hrac.body += bodyVKole
+                this.aktualizujZobrazenieTextu()
                 for(karta in this.kartyNaStole) {
                     this.ziskaneKartyHrac.add(karta)
                 }
@@ -97,7 +107,7 @@ class Hra (var binding : FragmentHraBinding,val hrac: Hrac = Hrac(), val protihr
             }
             else {
                 this.protihrac.body += bodyVKole
-                binding.protihracoveBodyTextView.setText("Protihráčove body: ${protihrac.body}")
+                this.aktualizujZobrazenieTextu()
                 this.kartyNaStole.clear()
                 this.rozdajKarty()
                 if(protihrac.kartyRuka.size!= 0) {
@@ -106,11 +116,11 @@ class Hra (var binding : FragmentHraBinding,val hrac: Hrac = Hrac(), val protihr
                 }
             }
             if(this.hrac.kartyRuka.size == 0) {
-                val bundle : Bundle = Bundle();
+                val bundle = Bundle()
                 bundle.putParcelableArrayList("ziskane karty", this.ziskaneKartyHrac)
 
 
-                binding.root.findNavController().navigate(R.id.action_hraFragment_to_vysledokHryFragment, bundle)
+                binding?.root?.findNavController()?.navigate(R.id.action_hraFragment_to_vysledokHryFragment, bundle)
             }
 
             this.aktualizujZobrazenieKariet()
@@ -125,7 +135,7 @@ class Hra (var binding : FragmentHraBinding,val hrac: Hrac = Hrac(), val protihr
             if(index != -1) {
                 val karta : Karta = this.protihrac.kartyRuka.removeAt(index)
                 this.kartyNaStole.add(karta)
-                this.hracVyhralKolo = false;
+                this.hracVyhralKolo = false
             } else {
                 val indexSedem = this.dajIndexKartyZRukyProtihraca(TypKarty.SEDEM)
                 if(index != -1) {
@@ -153,7 +163,7 @@ class Hra (var binding : FragmentHraBinding,val hrac: Hrac = Hrac(), val protihr
                         val karta = this.protihrac.kartyRuka.removeAt(indexObycajnaKarta)
                         this.kartyNaStole.add(karta)
                     } else {
-                        val karta = this.protihrac.kartyRuka.removeAt(0);
+                        val karta = this.protihrac.kartyRuka.removeAt(0)
                         this.kartyNaStole.add(karta)
 
                     }
@@ -172,7 +182,7 @@ class Hra (var binding : FragmentHraBinding,val hrac: Hrac = Hrac(), val protihr
             if(index != -1) {
                 val karta = this.protihrac.kartyRuka.removeAt(index)
                 this.kartyNaStole.add(karta)
-                this.hracVyhralKolo= false;
+                this.hracVyhralKolo= false
             }
             else {
                 val indexSedem = this.dajIndexKartyZRukyProtihraca(TypKarty.SEDEM)
@@ -193,7 +203,7 @@ class Hra (var binding : FragmentHraBinding,val hrac: Hrac = Hrac(), val protihr
     }
 
 
-    fun maProtihracObycajnuKartu() : Int {
+    private fun maProtihracObycajnuKartu() : Int {
         var indexObycajnaKarta: Int = -1;
         for(i in 0..(this.protihrac.kartyRuka.size-1)) {
             if(protihrac.kartyRuka[i].typ != TypKarty.DESAT && protihrac.kartyRuka[i].typ != TypKarty.ESO
@@ -214,7 +224,7 @@ class Hra (var binding : FragmentHraBinding,val hrac: Hrac = Hrac(), val protihr
 
 
     private fun dajIndexKartyZRukyProtihraca(typKarty: TypKarty) : Int {
-        var index: Int = -1;
+        var index: Int = -1
         for(i in 0..(this.protihrac.kartyRuka.size-1)) {
             if(protihrac.kartyRuka[i].typ == typKarty) {
                 index = i;
@@ -232,7 +242,13 @@ class Hra (var binding : FragmentHraBinding,val hrac: Hrac = Hrac(), val protihr
         return false
     }
 
-    private fun aktualizujZobrazenieKariet() {
+    fun aktualizujZobrazenieTextu() {
+        binding?.vaseBodyTextView?.text = binding?.root?.resources?.getString(R.string.hracove_body, this.hrac.body)
+        binding?.protihracoveBodyTextView?.text = binding?.root?.resources?.getString(R.string.protihracove_body, this.protihrac.body)
+        binding?.zostavaKarietTextView?.text = binding?.root?.resources?.getString(R.string.zostava_kariet, this.karty.size)
+    }
+
+    fun aktualizujZobrazenieKariet() {
         this.zobrazKartyRuka()
         this.zobrazVylozeneKarty()
     }
@@ -242,49 +258,49 @@ class Hra (var binding : FragmentHraBinding,val hrac: Hrac = Hrac(), val protihr
 
         //4. karta
         if(this.hrac.kartyRuka.size >3) {
-            binding.kartaRuka4.setImageResource(hrac.kartyRuka[3].obrazok);
+            binding?.kartaRuka4?.setImageResource(hrac.kartyRuka[3].obrazok)
         } else {
-            binding.kartaRuka4.setImageResource(android.R.color.transparent)
+            binding?.kartaRuka4?.setImageResource(android.R.color.transparent)
         }
         //3. karta
         if(this.hrac.kartyRuka.size >2) {
-            binding.kartaRuka3.setImageResource(hrac.kartyRuka[2].obrazok);
+            binding?.kartaRuka3?.setImageResource(hrac.kartyRuka[2].obrazok)
         } else {
-            binding.kartaRuka3.setImageResource(android.R.color.transparent)
+            binding?.kartaRuka3?.setImageResource(android.R.color.transparent)
         }
         //2. karta
         if(this.hrac.kartyRuka.size >1) {
-            binding.kartaRuka2.setImageResource(hrac.kartyRuka[1].obrazok);
+            binding?.kartaRuka2?.setImageResource(hrac.kartyRuka[1].obrazok)
         } else {
-            binding.kartaRuka2.setImageResource(android.R.color.transparent)
+            binding?.kartaRuka2?.setImageResource(android.R.color.transparent)
         }
         //1.karta
         if(this.hrac.kartyRuka.size >0) {
-            binding.kartaRuka1.setImageResource(hrac.kartyRuka[0].obrazok);
+            binding?.kartaRuka1?.setImageResource(hrac.kartyRuka[0].obrazok)
         } else {
-            binding.kartaRuka1.setImageResource(android.R.color.transparent)
+            binding?.kartaRuka1?.setImageResource(android.R.color.transparent)
         }
     }
 
     private fun zobrazVylozeneKarty() {
 
-        val imageViewKariet = arrayOf(binding.karta1, binding.karta2, binding.karta3, binding.karta4, binding.karta5, binding.karta6, binding.karta7, binding.karta8);
+        val imageViewKariet = arrayOf(binding?.karta1, binding?.karta2, binding?.karta3, binding?.karta4, binding?.karta5, binding?.karta6, binding?.karta7, binding?.karta8)
         for(i in (imageViewKariet.size-1) downTo 0) {
             if(this.kartyNaStole.size > i) {
-                imageViewKariet[i].setImageResource(this.kartyNaStole[i].obrazok)
+                imageViewKariet[i]?.setImageResource(this.kartyNaStole[i].obrazok)
             } else {
-                imageViewKariet[i].setImageResource(android.R.color.transparent)
+                imageViewKariet[i]?.setImageResource(android.R.color.transparent)
             }
         }
     }
 private fun rozdajKarty() {
         while(hrac.kartyRuka.size != 4 && this.karty.size != 0) {
             var karta: Karta = this.karty.removeLast()
-            this.hrac.kartyRuka.add(karta);
+            this.hrac.kartyRuka.add(karta)
             karta = this.karty.removeLast()
-            this.protihrac.kartyRuka.add(karta);
+            this.protihrac.kartyRuka.add(karta)
         }
-        this.binding.zostavaKarietTextView.setText("Zostáva: ${this.karty.size} kariet")
+        this.aktualizujZobrazenieTextu()
     }
 
     private fun inicializujKarty() {

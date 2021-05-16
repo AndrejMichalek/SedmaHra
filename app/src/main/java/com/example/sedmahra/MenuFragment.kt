@@ -39,11 +39,17 @@ class MenuFragment : Fragment() {
     ): View? {
         val binding : FragmentMenuBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_menu, container, false)
 
-
+        val klucKNovejHre : String = "nova_hra"
 
         binding.hrajButton.setOnClickListener() { view:View ->
             view.findNavController().navigate(R.id.menuFragment_to_hraFragment)
         }
+        binding.novaHraButton.setOnClickListener() {view:View->
+            val balicek : Bundle = Bundle();
+            balicek.putBoolean(klucKNovejHre, true)
+            view.findNavController().navigate(R.id.menuFragment_to_hraFragment, balicek)
+        }
+
         binding.pravidlaHryButton.setOnClickListener() {view:View->
             view.findNavController().navigate(R.id.action_menuFragment_to_pravidlaFragment)
         }

@@ -1,6 +1,8 @@
 package com.example.sedmahra
 
-enum class TypKarty {
+import java.io.Serializable
+
+enum class TypKarty : Serializable {
     SEDEM,
     OSEM,
     DEVAT,

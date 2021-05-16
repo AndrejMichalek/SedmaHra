@@ -13,15 +13,14 @@
             android:id="@+id/karta_ruka_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
             android:adjustViewBounds="true"
             android:maxHeight="150dp"
             android:scaleType="fitCenter"
             android:src="@drawable/karta_10c"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/karta_ruka_2"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/vodiaca_linka"
+            app:layout_constraintTop_toBottomOf="@+id/ber_button" />
 
         <ImageButton
             android:id="@+id/karta_ruka_2"
@@ -31,10 +30,10 @@
             android:maxHeight="150dp"
             android:scaleType="fitCenter"
             android:src="@drawable/karta_10c"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/karta_ruka_3"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/karta_ruka_1" />
+            app:layout_constraintStart_toEndOf="@+id/karta_ruka_1"
+            app:layout_constraintTop_toBottomOf="@+id/ber_button" />
 
         <ImageButton
             android:id="@+id/karta_ruka_3"
@@ -47,15 +46,14 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/karta_ruka_4"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/karta_ruka_2" />
+            app:layout_constraintStart_toEndOf="@+id/vodiaca_linka" />
 
         <ImageButton
             android:id="@+id/karta_ruka_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="5dp"
-            android:adjustViewBounds="true"
 
+            android:adjustViewBounds="true"
             android:maxHeight="150dp"
             android:scaleType="fitXY"
             android:src="@drawable/karta_10c"
@@ -85,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="8dp"
             android:text="@string/karty_na_kope"
             android:textSize="18sp"
             app:chainUseRtl="false"
@@ -116,13 +114,12 @@
             android:id="@+id/protihracove_body_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="148dp"
+            android:layout_marginTop="8dp"
             android:text="@string/protihracove_body"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/vodiaca_linka"
             app:layout_constraintStart_toEndOf="@+id/vase_body_textView"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -130,40 +127,34 @@
             android:id="@+id/ber_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
             android:text="@string/ber_button_text"
-            app:layout_constraintBottom_toTopOf="@+id/karta_ruka_4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/karty_ruka_textView" />
+            app:layout_constraintStart_toEndOf="@+id/karty_ruka_textView"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/karty_ruka_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="20dp"
             android:text="@string/karty_ruka_text"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/karta_ruka_1"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toStartOf="@+id/ber_button"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/protihracove_body_textView"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/karta_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:adjustViewBounds="true"
             android:maxHeight="150dp"
 
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toStartOf="@+id/karta_2"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/karty_kopa_textView"
             app:srcCompat="@drawable/karta_10g" />
@@ -172,7 +163,6 @@
             android:id="@+id/karta_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:adjustViewBounds="true"
             android:maxHeight="150dp"
 
@@ -187,7 +177,6 @@
             android:id="@+id/karta_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:adjustViewBounds="true"
             android:maxHeight="150dp"
 
@@ -202,12 +191,11 @@
             android:id="@+id/karta_4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:adjustViewBounds="true"
             android:maxHeight="150dp"
 
             android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/vodiaca_linka"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/karta_3"
             app:layout_constraintTop_toBottomOf="@+id/karty_kopa_textView"
@@ -221,11 +209,10 @@
             android:maxHeight="150dp"
             android:scaleType="fitCenter"
 
-            app:layout_constraintBottom_toTopOf="@+id/karty_ruka_textView"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/karta_6"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/karta_1"
             app:srcCompat="@drawable/karta_10g" />
 
         <ImageView
@@ -236,11 +223,10 @@
             android:maxHeight="150dp"
             android:scaleType="fitCenter"
 
-            app:layout_constraintBottom_toTopOf="@+id/karty_ruka_textView"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/karta_7"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/karta_5"
-            app:layout_constraintTop_toBottomOf="@+id/karta_2"
             app:srcCompat="@drawable/karta_10g" />
 
         <ImageView
@@ -251,11 +237,10 @@
             android:maxHeight="150dp"
             android:scaleType="fitCenter"
 
-            app:layout_constraintBottom_toTopOf="@+id/karty_ruka_textView"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/karta_8"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/karta_6"
-            app:layout_constraintTop_toBottomOf="@+id/karta_3"
             app:srcCompat="@drawable/karta_10g" />
 
         <ImageView
@@ -266,12 +251,26 @@
             android:maxHeight="150dp"
             android:scaleType="fitCenter"
 
-            app:layout_constraintBottom_toTopOf="@+id/karty_ruka_textView"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/vodiaca_linka"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/karta_7"
-            app:layout_constraintTop_toBottomOf="@+id/karta_4"
+            app:layout_constraintStart_toEndOf="@+id/karta_3"
             app:srcCompat="@drawable/karta_10g" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/vodiaca_linka"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="546dp"
+            android:layout_marginEnd="185dp"
+            android:layout_marginBottom="411dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_begin="474dp"
+            app:layout_constraintHorizontal_bias="0.58"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
