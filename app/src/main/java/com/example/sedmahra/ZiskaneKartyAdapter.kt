@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.dvojica_kariet.view.*
 
 
 class ZiskaneKartyAdapter(var karty: ArrayList<Karta>) : RecyclerView.Adapter<ZiskaneKartyAdapter.ZiskaneKartyViewHolder>() {
-    inner class ZiskaneKartyViewHolder(dvojicaKariet: View) : RecyclerView.ViewHolder(dvojicaKariet)
+    inner class ZiskaneKartyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ZiskaneKartyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.dvojica_kariet, parent, false)

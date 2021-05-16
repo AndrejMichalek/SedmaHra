@@ -22,6 +22,10 @@
     <string name="ziskal_si_bod">Získal si %d bod</string>
     <string name="ziskal_si_body">Získal si %d body</string>
 
+    <string name="zmaz_historiu">Zmaž históriu</string>
+    <string name="ziskane_body">Získané body: %d</string>
+    <string name="datum">Dátum a čas: %s</string>
+
     <string name="historia_subor">historia_hry_subor</string>
 
 

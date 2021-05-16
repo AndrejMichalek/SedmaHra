@@ -3,9 +3,15 @@ import android.os.*
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.navigation.findNavController
 import com.example.sedmahra.databinding.FragmentHraBinding
 import java.io.Serializable
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.LocalDateTime.now
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac: Hrac = Hrac(), val protihrac: Hrac = Hrac(), var karty: ArrayList<Karta> = ArrayList<Karta>(),
@@ -119,6 +125,14 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
                 val bundle = Bundle()
                 bundle.putParcelableArrayList("ziskane karty", this.ziskaneKartyHrac)
                 bundle.putInt("ziskane body", this.hrac.body)
+
+                val kalendar = Calendar.getInstance()
+                val formatovacDatumuACasu = SimpleDateFormat("dd.MM.yyyy hh:mm:ss")
+                val datumACas = formatovacDatumuACasu.format(kalendar.time)
+
+                val vysledokHry = VysledokHry(this.hrac.body, datumACas)
+                val zapisovac : UkladanieVysledkovHry = UkladanieVysledkovHry()
+                zapisovac.zapisNovy(vysledokHry, this.binding?.root?.context)
 
                 binding?.root?.findNavController()?.navigate(R.id.action_hraFragment_to_vysledokHryFragment, bundle)
             }
