@@ -15,5 +15,15 @@
     <string name="ber_button_text">Ber</string>
     <string name="karty_ruka_text">Karty v ruke:</string>
 
+    <string name="vyhral_si">VYHRAL SI</string>
+    <string name="prehral_si">PREHRAL SI</string>
+    <string name="remiza">REMÍZA</string>
+    <string name="ziskal_si_bodov">Získal si %d bodov</string>
+    <string name="ziskal_si_bod">Získal si %d bod</string>
+    <string name="ziskal_si_body">Získal si %d body</string>
+
     <string name="historia_subor">historia_hry_subor</string>
+
+
+
 </resources>

@@ -11,23 +11,26 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_ziskane_karty"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
             android:layout_margin="10dp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
             android:scrollbars="vertical"
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_view_vyhral_prehral">
+            app:layout_constraintStart_toStartOf="@+id/deliaca_ciara"
+            app:layout_constraintTop_toTopOf="parent">
 
         </androidx.recyclerview.widget.RecyclerView>
 
         <ImageView
+
             android:id="@+id/image_view_vyhral_prehral"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_margin="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/text_view_vyhral_prehral"
+            app:layout_constraintEnd_toStartOf="@+id/deliaca_ciara"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/smajlik_vyhral" />
@@ -36,25 +39,40 @@
             android:id="@+id/text_view_vyhral_prehral"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="30dp"
             android:text="@string/vyhral_si"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_view_vyhral_prehral"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintBottom_toTopOf="@+id/text_view_ziskal_si_bodov"
+            app:layout_constraintEnd_toStartOf="@+id/deliaca_ciara"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/image_view_vyhral_prehral" />
 
         <TextView
             android:id="@+id/text_view_ziskal_si_bodov"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
             android:text="@string/ziskal_si_bodov"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@+id/image_view_vyhral_prehral"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_view_vyhral_prehral"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/deliaca_ciara"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_view_vyhral_prehral" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/deliaca_ciara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="345dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="386dp"
+            android:layout_marginBottom="401dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintGuide_begin="335dp"
+            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

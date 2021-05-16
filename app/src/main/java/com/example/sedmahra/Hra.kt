@@ -118,7 +118,7 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
             if(this.hrac.kartyRuka.size == 0) {
                 val bundle = Bundle()
                 bundle.putParcelableArrayList("ziskane karty", this.ziskaneKartyHrac)
-
+                bundle.putInt("ziskane body", this.hrac.body)
 
                 binding?.root?.findNavController()?.navigate(R.id.action_hraFragment_to_vysledokHryFragment, bundle)
             }

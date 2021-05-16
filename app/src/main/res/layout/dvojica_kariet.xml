@@ -4,28 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="300dp"
-    android:padding="10dp">
+    android:layout_margin="5dp">
 
 
     <ImageView
         android:id="@+id/lava_karta"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toStartOf="@+id/prava_karta"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="10dp"
         tools:srcCompat="@drawable/karta_10c" />
 
     <ImageView
         android:id="@+id/prava_karta"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/lava_karta"
-        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="10dp"
         tools:srcCompat="@drawable/karta_10g" />
 </androidx.constraintlayout.widget.ConstraintLayout>
