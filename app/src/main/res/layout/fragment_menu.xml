@@ -18,7 +18,17 @@
             app:layout_constraintBottom_toTopOf="@+id/nova_hra_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+            app:layout_constraintTop_toBottomOf="@+id/titulny_obrazok" />
+
+        <ImageView
+            android:id="@+id/titulny_obrazok"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:src="@drawable/menu_obr"
+            app:layout_constraintBottom_toTopOf="@+id/hraj_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/nova_hra_button"
@@ -52,16 +62,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pravidla_hry_button" />
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="300dp"
-            android:layout_height="200dp"
-            android:src="@drawable/menu_obr"
-            app:layout_constraintBottom_toTopOf="@+id/hraj_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

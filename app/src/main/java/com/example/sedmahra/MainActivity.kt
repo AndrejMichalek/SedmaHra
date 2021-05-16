@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp() :Boolean {
         val navController = this.findNavController(R.id.mainFragment)
+
         return navController.navigateUp()
     }
 

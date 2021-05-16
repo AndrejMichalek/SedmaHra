@@ -152,7 +152,7 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
                 this.hracVyhralKolo = false
             } else {
                 val indexSedem = this.dajIndexKartyZRukyProtihraca(TypKarty.SEDEM)
-                if(index != -1) {
+                if(indexSedem != -1) {
                     if(this.jeNaStoleDesatAleboEso()) {
                         val karta = this.protihrac.kartyRuka.removeAt(indexSedem)
                         this.kartyNaStole.add(karta)

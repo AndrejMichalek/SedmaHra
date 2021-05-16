@@ -1,8 +1,11 @@
 package com.example.sedmahra
 
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.dvojica_kariet.view.*
 import kotlinx.android.synthetic.main.historia_vysledok_hry.view.*
