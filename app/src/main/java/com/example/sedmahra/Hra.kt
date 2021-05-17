@@ -272,27 +272,35 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
 
         //4. karta
         if(this.hrac.kartyRuka.size >3) {
+            binding?.kartaRuka4?.visibility=View.VISIBLE;
             binding?.kartaRuka4?.setImageResource(hrac.kartyRuka[3].obrazok)
         } else {
-            binding?.kartaRuka4?.setImageResource(android.R.color.transparent)
+            binding?.kartaRuka4?.visibility=View.INVISIBLE;
+            //binding?.kartaRuka4?.setImageResource(android.R.color.transparent)
         }
         //3. karta
         if(this.hrac.kartyRuka.size >2) {
+            binding?.kartaRuka3?.visibility=View.VISIBLE;
             binding?.kartaRuka3?.setImageResource(hrac.kartyRuka[2].obrazok)
         } else {
-            binding?.kartaRuka3?.setImageResource(android.R.color.transparent)
+            binding?.kartaRuka3?.visibility=View.INVISIBLE;
+            //binding?.kartaRuka3?.setImageResource(android.R.color.transparent)
         }
         //2. karta
         if(this.hrac.kartyRuka.size >1) {
+            binding?.kartaRuka2?.visibility=View.VISIBLE;
             binding?.kartaRuka2?.setImageResource(hrac.kartyRuka[1].obrazok)
         } else {
-            binding?.kartaRuka2?.setImageResource(android.R.color.transparent)
+            binding?.kartaRuka2?.visibility=View.INVISIBLE;
+            //binding?.kartaRuka2?.setImageResource(android.R.color.transparent)
         }
         //1.karta
         if(this.hrac.kartyRuka.size >0) {
+            binding?.kartaRuka1?.visibility=View.VISIBLE;
             binding?.kartaRuka1?.setImageResource(hrac.kartyRuka[0].obrazok)
         } else {
-            binding?.kartaRuka1?.setImageResource(android.R.color.transparent)
+            binding?.kartaRuka1?.visibility=View.INVISIBLE;
+            //binding?.kartaRuka1?.setImageResource(android.R.color.transparent)
         }
     }
 
@@ -301,9 +309,11 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
         val imageViewKariet = arrayOf(binding?.karta1, binding?.karta2, binding?.karta3, binding?.karta4, binding?.karta5, binding?.karta6, binding?.karta7, binding?.karta8)
         for(i in (imageViewKariet.size-1) downTo 0) {
             if(this.kartyNaStole.size > i) {
+                imageViewKariet[i]?.visibility = View.VISIBLE
                 imageViewKariet[i]?.setImageResource(this.kartyNaStole[i].obrazok)
             } else {
-                imageViewKariet[i]?.setImageResource(android.R.color.transparent)
+                imageViewKariet[i]?.visibility = View.INVISIBLE
+                //imageViewKariet[i]?.setImageResource(android.R.color.transparent)
             }
         }
     }

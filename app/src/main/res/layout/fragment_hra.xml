@@ -64,6 +64,22 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/karta_ruka_3" />
 
+        <ImageButton
+            android:id="@+id/karta_ruka_placeholder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:adjustViewBounds="true"
+            android:visibility="invisible"
+
+            android:maxHeight="150dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/karta_10c"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/karta_ruka_3" />
+
         <TextView
             android:id="@+id/vase_body_textView"
             android:layout_width="wrap_content"
@@ -130,27 +146,22 @@
             android:id="@+id/ber_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
             android:text="@string/ber_button_text"
-            app:layout_constraintBottom_toTopOf="@+id/karta_ruka_4"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/karty_ruka_textView" />
+            app:layout_constraintBottom_toTopOf="@id/karta_ruka_placeholder"
+            tools:layout_editor_absoluteY="523dp" />
 
         <TextView
             android:id="@+id/karty_ruka_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="20dp"
+            android:layout_margin="10dp"
             android:text="@string/karty_ruka_text"
             android:textSize="18sp"
-            app:layout_constraintBottom_toTopOf="@+id/karta_ruka_1"
-            app:layout_constraintEnd_toStartOf="@+id/ber_button"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/karta_ruka_placeholder"
+            tools:layout_editor_absoluteY="537dp" />
 
         <ImageView
             android:id="@+id/karta_1"

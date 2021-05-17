@@ -27,7 +27,11 @@
     <string name="datum">Dátum a čas: %s</string>
 
     <string name="historia_subor">historia_hry_subor</string>
+    <string name="tlacidlo_text_vlavo">SPÄŤ</string>
+    <string name="tlacidlo_text_vpravo">ĎALEJ</string>
 
-
-
+    <string name="pravidla_jedna_text">Cieľom hry je získať čo najviac kariet ESO alebo DESAŤ.</string>
+    <string name="pravidla_dva_text">Kolo vyhráva ten, kto vloží posledný rovnakú kartu, ako je na spodku.</string>
+    <string name="pravidla_tri_text">Rovnaký účinok má vloženie sedmičky.</string>
+    <string name="pravidla_styri_text">Ak začína kolo protihráč, vždy musíte doložiť kartu do párneho počtu.</string>
 </resources>

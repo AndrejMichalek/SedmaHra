@@ -14,26 +14,25 @@
             android:id="@+id/image_view_pravidla"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="10dp"
-            app:layout_constraintBottom_toTopOf="@+id/text_view_pravidla"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tlacidlo_vlavo"
+            app:layout_constraintEnd_toStartOf="@+id/text_view_pravidla"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/pravidla_uvod" />
 
         <TextView
-            android:layout_margin="10dp"
             android:id="@+id/text_view_pravidla"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/pravidla_jedna_text"
             android:textAlignment="center"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/tlacidlo_vlavo"
+            app:layout_constraintBottom_toTopOf="@+id/tlacidlo_vpravo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/image_view_pravidla" />
+            app:layout_constraintStart_toEndOf="@+id/image_view_pravidla"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/tlacidlo_vlavo"
