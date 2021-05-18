@@ -19,9 +19,9 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 /**
- * A simple [Fragment] subclass.
- * Use the [HraFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Hra fragment
+ *
+ * @constructor Create empty Hra fragment
  */
 class HraFragment : Fragment() {
     lateinit var hra: Hra
@@ -36,7 +36,7 @@ class HraFragment : Fragment() {
         }*/
         val novaHra: Boolean? = arguments?.getBoolean("nova_hra")
         if(novaHra == true) {
-            var file = File(context?.filesDir,"ulozenaHra1")
+            val file = File(context?.filesDir,"ulozenaHra1")
             if(file.exists()) {
                 file.delete()
             }
@@ -44,7 +44,7 @@ class HraFragment : Fragment() {
         }
         val hraUlozena : Boolean? = savedInstanceState?.getBoolean("hraUlozena")
         if(hraUlozena == false || hraUlozena == null) {
-            var nacitalaSa : Boolean = this.nacitajHruZoSuboru(binding)
+            val nacitalaSa : Boolean = this.nacitajHruZoSuboru(binding)
             if(!nacitalaSa) {
                 hra = Hra(binding, false);
             }
@@ -62,6 +62,7 @@ class HraFragment : Fragment() {
 
 
     }
+
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
@@ -103,6 +104,12 @@ class HraFragment : Fragment() {
         }
     }
 
+    /**
+     * Načíta uloženú hru zo súboru
+     *
+     * @param binding Referencia na binding fragmentu hry
+     * @return True, ak sa podarilo hru načítať, false, ak sa to nepodarilo
+     */
 
     private fun nacitajHruZoSuboru(binding : FragmentHraBinding): Boolean {
         try {
@@ -131,7 +138,5 @@ class HraFragment : Fragment() {
         }
 
     }
-
-
 
 }

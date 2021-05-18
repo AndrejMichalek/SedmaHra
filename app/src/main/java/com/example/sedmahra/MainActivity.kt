@@ -20,25 +20,6 @@ class MainActivity : AppCompatActivity() {
         val navController = this.findNavController(R.id.mainFragment)
         NavigationUI.setupActionBarWithNavController(this, navController)
 
-/*
-        val arr: ArrayList<Int> = ArrayList<Int>();
-        arr.add(R.drawable.karta_10c);
-        arr.add(R.drawable.karta_10g);
-        arr.add(R.drawable.karta_10l);
-
-
-
-
-        val karta : ImageButton = binding.kartadole;
-        var i: Int = 0;
-        karta.setOnClickListener() {
-            karta.setImageResource(arr[i]);
-
-            i++;
-            if(i == 3) {
-                i = 0;
-            }
-        }*/
 
     }
 

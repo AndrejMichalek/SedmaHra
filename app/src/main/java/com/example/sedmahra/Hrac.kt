@@ -9,8 +9,7 @@ data class Hrac(var kartyRuka: ArrayList<Karta> = ArrayList<Karta>(), var body:I
     constructor(parcel: Parcel) : this(
         TODO("kartyRuka"),
         parcel.readInt()
-    ) {
-    }
+    )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(body)

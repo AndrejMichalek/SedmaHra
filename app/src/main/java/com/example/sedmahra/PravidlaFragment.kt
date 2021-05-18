@@ -17,9 +17,9 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 /**
- * A simple [Fragment] subclass.
- * Use the [PravidlaFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Trieda obsahuje fragment s pravidlami hry
+ *
+ * @constructor Vytvoí fragment pravidiel hry
  */
 class PravidlaFragment : Fragment() {
     private var poloha: Int = 0;
@@ -31,7 +31,7 @@ class PravidlaFragment : Fragment() {
         val binding : FragmentPravidlaBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_pravidla, container, false)
         binding.tlacidloVlavo.isEnabled = false
 
-        var polohaNullova : Int? = savedInstanceState?.getInt("poloha")
+        val polohaNullova : Int? = savedInstanceState?.getInt("poloha")
         if(polohaNullova != null) {
             this.poloha = polohaNullova
         }

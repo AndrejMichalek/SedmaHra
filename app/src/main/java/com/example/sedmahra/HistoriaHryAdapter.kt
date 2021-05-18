@@ -10,8 +10,21 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.dvojica_kariet.view.*
 import kotlinx.android.synthetic.main.historia_vysledok_hry.view.*
 
+/**
+ * Adaptér pre RecyclerView, ktorý zobrazuje históriu hier
+ *
+ * @property ulozeneHry ArrayList uložených hier
+ * @constructor Vytvorí adaptér Histórie Hry
+ */
 class HistoriaHryAdapter (var ulozeneHry: ArrayList<VysledokHry>): RecyclerView.Adapter<HistoriaHryAdapter.HistoriaHryViewHolder>() {
 
+    /**
+     * Historia hry view holder
+     *
+     * @constructor - vytvorí view holder pre RecyclerView história hry
+     *
+     * @param itemView referencia na View, kde bude zobrazený
+     */
     inner class HistoriaHryViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HistoriaHryViewHolder {

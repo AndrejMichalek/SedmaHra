@@ -5,9 +5,19 @@ import java.io.FileNotFoundException
 import java.io.ObjectInputStream
 import java.io.ObjectOutputStream
 
+/**
+ * Ukladanie vysledkov hry do súboru
+ *
+ * @constructor Vytvorí objekt ukladača do súboru
+ */
 class UkladanieVysledkovHry {
     private val nazovSuboru: String = "subor_historia_hry"
 
+    /**
+     * Zmaže všetky výsledky hier
+     *
+     * @param context
+     */
     fun zmazVsetky(context : Context?) {
         val prazdnyArrayList : ArrayList<VysledokHry> = ArrayList<VysledokHry>()
 
@@ -16,6 +26,12 @@ class UkladanieVysledkovHry {
         }
     }
 
+    /**
+     * Zapíše nový výsledok
+     *
+     * @param vysledok výsledok, ktorý treba zapísať
+     * @param context kontext z viewu, ktorý chce zapisovať
+     */
     fun zapisNovy(vysledok: VysledokHry, context : Context?) {
         val vsetkyVysledky = this.dajVsetky(context)
 
@@ -26,6 +42,12 @@ class UkladanieVysledkovHry {
         }
     }
 
+    /**
+     * Načíta všetky uložené hry zo súboru, ak žiadne nie sú, vráti prázdny arraylist
+     *
+     * @param context kontext z viewu, ktorý chce zapisovať
+     * @return ArrayList uložených výsledkov hier
+     */
     fun dajVsetky(context : Context?) : ArrayList<VysledokHry> {
         var vsetkyVysledky : ArrayList<VysledokHry>
         try {

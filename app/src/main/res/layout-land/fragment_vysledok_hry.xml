@@ -11,9 +11,9 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view_ziskane_karty"
-            android:layout_margin="10dp"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_margin="10dp"
             android:scrollbars="vertical"
 
             app:layout_constraintBottom_toBottomOf="parent"
@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:text="@string/ziskal_si_bodov"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/zdielat_tlacidlo"
             app:layout_constraintEnd_toStartOf="@+id/deliaca_ciara"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_view_vyhral_prehral" />
@@ -73,6 +73,16 @@
             app:layout_constraintHorizontal_bias="0.39"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/zdielat_tlacidlo"
+            android:layout_margin="5dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/zdielat"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/deliaca_ciara"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

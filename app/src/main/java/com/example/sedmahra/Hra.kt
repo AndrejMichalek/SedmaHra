@@ -14,6 +14,19 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
+/**
+ * Hra
+ *
+ * @property binding
+ * @property nacitanaHra
+ * @property hrac
+ * @property protihrac
+ * @property karty
+ * @property ziskaneKartyHrac
+ * @property hracVyhralKolo
+ * @property kartyNaStole
+ * @constructor Create empty Hra
+ */
 class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac: Hrac = Hrac(), val protihrac: Hrac = Hrac(), var karty: ArrayList<Karta> = ArrayList<Karta>(),
            var ziskaneKartyHrac: ArrayList<Karta> = ArrayList<Karta>(), var hracVyhralKolo: Boolean = true, var kartyNaStole: ArrayList<Karta> = ArrayList<Karta>()
             ) :Serializable{
@@ -28,6 +41,10 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
 
     }
 
+    /**
+     * Spustí onClickListenery na všetky tlačidlá a imageButtony hry
+     *
+     */
     public fun nastavListenery() {
         binding?.kartaRuka1?.setOnClickListener() {
             hracovTah(0);
@@ -52,6 +69,11 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
         }
     }
 
+    /**
+     * Reakcia hry na hráčov ťah - ak je to možné, použije v hre kartu, ktorú si hráč vybral
+     *
+     * @param indexKarty Index karty v ruke hráča, ktorú chce hráč položiť na stôl
+     */
 
     private fun hracovTah(indexKarty : Int) {
         if(this.kartyNaStole.size == 1 || this.kartyNaStole.size == 3 || this.kartyNaStole.size == 5 || this.kartyNaStole.size == 7) {
@@ -75,7 +97,7 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
             if(kartyNaStole.size > 0) {
                 if(hrac.kartyRuka[indexKarty].typ != this.kartyNaStole[0].typ &&
                     hrac.kartyRuka[indexKarty].typ != TypKarty.SEDEM) {
-                    Toast.makeText(binding?.root?.context, "Táto karta  nemôže zabiť", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(binding?.root?.context, binding?.root?.resources?.getString(R.string.karta_nemoze_zabit), Toast.LENGTH_SHORT).show()
                 }
                 else {
                     val karta : Karta = this.hrac.kartyRuka.removeAt(indexKarty);
@@ -91,6 +113,10 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
         }
     }
 
+    /**
+     * Ukončuje dané kolo, pripočíta hráčovi a protihráčovi príslušný počet bodov
+     * Ak ide o posledné kolo, tak ukončuje aj samotnú hru
+     */
     private fun koloSkoncilo() {
         this.aktualizujZobrazenieKariet()
         //spocitanie bodov
@@ -127,7 +153,7 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
                 bundle.putInt("ziskane body", this.hrac.body)
 
                 val kalendar = Calendar.getInstance()
-                val formatovacDatumuACasu = SimpleDateFormat("dd.MM.yyyy hh:mm:ss")
+                val formatovacDatumuACasu = SimpleDateFormat("dd.MM.yyyy HH:mm:ss")
                 val datumACas = formatovacDatumuACasu.format(kalendar.time)
 
                 val vysledokHry = VysledokHry(this.hrac.body, datumACas)
@@ -142,7 +168,10 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
 
     }
 
-
+    /**
+     * Reakcia protihráča na kartu, ktorú vyložil hráč.
+     *
+     */
     private fun protihracovTah() {
         if(this.kartyNaStole.size == 1 || this.kartyNaStole.size == 3 ||  this.kartyNaStole.size == 5 || this.kartyNaStole.size == 7) {
             val index = this.dajIndexKartyZRukyProtihraca(this.kartyNaStole[0].typ)
@@ -216,7 +245,12 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
 
     }
 
-
+    /**
+     * Vracia odpoveď na to, či má protihráč v ruke obyčajnú kartu
+     *  (tj. kartu, ktorá nie je ani eso, ani 10, ani sedmička)
+     *
+     * @return Ak je v ruke obyčajná karta, vráti jej index, inak vráti -1
+     */
     private fun maProtihracObycajnuKartu() : Int {
         var indexObycajnaKarta: Int = -1;
         for(i in 0..(this.protihrac.kartyRuka.size-1)) {
@@ -235,8 +269,13 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
         }
     }
 
-
-
+    /**
+     * Vráti index karty daného typu v ruke protihráča
+     * Ak kartu daného typu protihráč v ruke nemá, vráti -1
+     *
+     * @param typKarty Typ karty, akej index chcete zistiť
+     * @return Index karty
+     */
     private fun dajIndexKartyZRukyProtihraca(typKarty: TypKarty) : Int {
         var index: Int = -1
         for(i in 0..(this.protihrac.kartyRuka.size-1)) {
@@ -247,6 +286,12 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
         return index
     }
 
+    /**
+     * Vracia odpoveď na otázku, či je na stole položená karta desať alebo eso
+     * ak je, vráti true, inak vráti false
+     *
+     * @return odpoveď na otázku, či je na stole položená karta desať alebo eso
+     */
     private fun jeNaStoleDesatAleboEso() : Boolean {
         for(karta in this.kartyNaStole) {
             if(karta.typ == TypKarty.DESAT || karta.typ == TypKarty.ESO) {
@@ -256,17 +301,30 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
         return false
     }
 
+    /**
+     * Aktualizuje zobrazenie textViewov, ktoré informujú užívateľa
+     * o jeho bodoch, protihráčových bodoch a o tom, koľko kariet zostáva
+     *
+     */
     fun aktualizujZobrazenieTextu() {
         binding?.vaseBodyTextView?.text = binding?.root?.resources?.getString(R.string.hracove_body, this.hrac.body)
         binding?.protihracoveBodyTextView?.text = binding?.root?.resources?.getString(R.string.protihracove_body, this.protihrac.body)
         binding?.zostavaKarietTextView?.text = binding?.root?.resources?.getString(R.string.zostava_kariet, this.karty.size)
     }
 
+    /**
+     * Aktualizuje zobrazenie kariet v ruke hráča aj vyložených na stole podľa príslušných ArrayListov v atribútoch
+     *
+     */
     fun aktualizujZobrazenieKariet() {
         this.zobrazKartyRuka()
         this.zobrazVylozeneKarty()
     }
 
+    /**
+     * Aktualizuje zobrazenie kariet v hráčovej ruke
+     *
+     */
     private fun zobrazKartyRuka() {
         //android.R.color.transparent - ziadny obrazok
 
@@ -304,6 +362,10 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
         }
     }
 
+    /**
+     * Aktualizuje zobrazenie kariet vyložených na stole
+     *
+     */
     private fun zobrazVylozeneKarty() {
 
         val imageViewKariet = arrayOf(binding?.karta1, binding?.karta2, binding?.karta3, binding?.karta4, binding?.karta5, binding?.karta6, binding?.karta7, binding?.karta8)
@@ -317,7 +379,13 @@ class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac
             }
         }
     }
-private fun rozdajKarty() {
+
+    /**
+     * Z balíčka dostupných kariet rozdáva karty až dovtedy,
+     * kým balíček nie je prázdny alebo dokiaľ nemá hráč aj protihráč na ruke 4 karty
+     *
+     */
+    private fun rozdajKarty() {
         while(hrac.kartyRuka.size != 4 && this.karty.size != 0) {
             var karta: Karta = this.karty.removeLast()
             this.hrac.kartyRuka.add(karta)
@@ -327,6 +395,11 @@ private fun rozdajKarty() {
         this.aktualizujZobrazenieTextu()
     }
 
+    /**
+     * Vytvorí balíček kariet obsahujúcich 32 sedmových kariet
+     * Každá karta v balíčku je unikátna
+     *
+     */
     private fun inicializujKarty() {
         //sedmicky:
         this.karty.add(Karta(TypKarty.SEDEM, R.drawable.karta_7c))

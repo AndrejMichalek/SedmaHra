@@ -16,9 +16,9 @@ private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 /**
- * A simple [Fragment] subclass.
- * Use the [MenuFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Menu fragment
+ *
+ * @constructor Create empty Menu fragment
  */
 class MenuFragment : Fragment() {
     // TODO: Rename and change types of parameters

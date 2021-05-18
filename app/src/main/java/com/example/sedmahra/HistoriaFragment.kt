@@ -13,9 +13,9 @@ import kotlinx.android.synthetic.main.fragment_historia.*
 
 
 /**
- * A simple [Fragment] subclass.
- * Use the [HistoriaFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Historia fragment - trieda obsahuje fragment spracujúci históriu hry
+ *
+ * @constructor Vytvorí HistoriaFragment
  */
 class HistoriaFragment : Fragment() {
 
@@ -25,7 +25,6 @@ class HistoriaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val binding : FragmentHistoriaBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_historia, container, false)
-
 
         val nacitavac = UkladanieVysledkovHry()
         val vysledkyHier = nacitavac.dajVsetky(this.context)

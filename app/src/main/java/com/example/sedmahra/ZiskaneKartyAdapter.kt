@@ -8,7 +8,20 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.dvojica_kariet.view.*
 
 
+/**
+ * Adaptér pre RecyclerView získaných kariet
+ *
+ * @property karty ArrayList získaných kariet
+ * @constructor Vytvorí prázdny adaptér získaných kariet
+ */
 class ZiskaneKartyAdapter(var karty: ArrayList<Karta>) : RecyclerView.Adapter<ZiskaneKartyAdapter.ZiskaneKartyViewHolder>() {
+    /**
+     * Ziskane karty view holder pre recycler view získaných kariet
+     *
+     * @constructor
+     *
+     * @param itemView referencia na príslušný view
+     */
     inner class ZiskaneKartyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ZiskaneKartyViewHolder {
@@ -23,7 +36,6 @@ class ZiskaneKartyAdapter(var karty: ArrayList<Karta>) : RecyclerView.Adapter<Zi
        }
 
     }
-
     override fun getItemCount(): Int {
         return karty.size/2;
     }
