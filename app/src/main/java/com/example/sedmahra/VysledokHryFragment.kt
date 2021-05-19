@@ -76,15 +76,15 @@ class VysledokHryFragment : Fragment() {
         binding.textViewVyhralPrehral.text = this.getVyhralPrehralText()
 
         //obrazok
-        var obrazok: Int
+        val obrazok: Int
         if(ziskaneBody == 8) {
             obrazok = R.drawable.smajlik_vyhral_vsetko
         } else if(ziskaneBody >4) {
             obrazok = R.drawable.smajlik_vyhral
         } else if(ziskaneBody ==4) {
             obrazok = R.drawable.smajlik_remiza
-        } else if (ziskaneBody < 4) {
-            obrazok = R.drawable.smajlik_prehral
+        } else if (ziskaneBody == 0) {
+            obrazok = R.drawable.smajlik_prehral_vsetko
         } else {
             obrazok = R.drawable.smajlik_prehral
         }

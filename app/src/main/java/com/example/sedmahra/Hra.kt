@@ -15,17 +15,17 @@ import kotlin.collections.ArrayList
 
 
 /**
- * Hra
+ * Trieda Hra reprezentuje logiku hry
  *
- * @property binding
- * @property nacitanaHra
- * @property hrac
- * @property protihrac
- * @property karty
- * @property ziskaneKartyHrac
- * @property hracVyhralKolo
- * @property kartyNaStole
- * @constructor Create empty Hra
+ * @property binding Referencia na binding z HraFragment
+ * @property nacitanaHra True, ak ide o už načítanú hru a netreba rozdávať karty nanovo
+ * @property hrac Referencia na objekt hráča
+ * @property protihrac Referencia na objekt protihráča
+ * @property karty Všetky karty, z ktorých sa rozdáva až do konca hry
+ * @property ziskaneKartyHrac Karty, ktoré sa podarilo získať hráčovi
+ * @property hracVyhralKolo True, ak v danom kole vyhráva hráč, false, ak vyhráva protihráč
+ * @property kartyNaStole ArrayList kariet, ktoré sú aktuálne vyložené na stole
+ * @constructor Vytvorí objekt hry
  */
 class Hra (var binding : FragmentHraBinding?, var nacitanaHra: Boolean, val hrac: Hrac = Hrac(), val protihrac: Hrac = Hrac(), var karty: ArrayList<Karta> = ArrayList<Karta>(),
            var ziskaneKartyHrac: ArrayList<Karta> = ArrayList<Karta>(), var hracVyhralKolo: Boolean = true, var kartyNaStole: ArrayList<Karta> = ArrayList<Karta>()
